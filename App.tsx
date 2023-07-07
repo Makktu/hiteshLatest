@@ -11,8 +11,28 @@ const PasswordSchema = Yup.object().shape({
 });
 
 export default function App() {
-  const [count, setCount] = useState(0);
-  const [notification, setNotification] = useState('MESSAGES');
+  const [password, setPassword] = useState('');
+  const [isPassGenerated, setIsPassGenerated] = useState(false);
+  const [lowerCase, setLowerCase] = useState(true);
+  const [upperCase, setUpperCase] = useState(false);
+  const [numbers, setUsingNumbers] = useState(false);
+  const [symbols, setUsingSymbols] = useState(false);
+
+  const generatePasswordString = (passwordLength: number) => {
+    // stuff
+  };
+
+  const createPassword = (characters: string, passwordLength: number) => {
+    let result = '';
+    for (let a = 0; a < passwordLength; a++) {
+      const characterIndex = Math.round(Math.random() * characters.length);
+      result += characters.charAt(characterIndex);
+    }
+    return result;
+  };
+
+  const resetPasswordState = () => {};
+
   return (
     <View>
       <Text>New App</Text>
